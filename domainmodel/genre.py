@@ -4,6 +4,7 @@ class Genre:
             self.__genre_name = None
         else:
             self.__genre_name = genre_name.strip()
+        self._tagged_movies = []
 
     @property
     def genre_name(self) -> str:
@@ -24,3 +25,17 @@ class Genre:
 
     def __hash__(self):
         return hash(self.__genre_name)
+
+    @property
+    def tagged_movies(self):
+        return self._tagged_movies
+
+    @property
+    def number_of_tagged_movies(self) -> int:
+        return len(self._tagged_movies)
+
+    def is_applied_to(self, movie) -> bool:
+        return movie in self._tagged_movies
+
+    def add_movie(self, movie):
+        self._tagged_movies.append(movie)

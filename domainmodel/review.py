@@ -17,6 +17,7 @@ class Review:
             self.__rating = rating
         else:
             self.__rating = None
+        self.__user = None
         self.__timestamp = datetime.now().timestamp()
 
     def __repr__(self):
@@ -36,6 +37,11 @@ class Review:
     def review_text(self):
         return self.__review_text
 
+    @review_text.setter
+    def review_text(self, new_review_text):
+        if type(new_review_text) is str:
+            self.__review_text = new_review_text
+
     @property
     def rating(self):
         return self.__rating
@@ -44,4 +50,10 @@ class Review:
     def timestamp(self):
         return self.__timestamp
 
+    @property
+    def user(self):
+        return self.__user
 
+    @user.setter
+    def user(self, user):
+        self.__user = user

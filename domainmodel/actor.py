@@ -1,5 +1,6 @@
 class Actor:
     def __init__(self, actor_full_name: str):
+        self._tagged_movies = []
         self.colleagueList = []
         if actor_full_name == "" or type(actor_full_name) is not str:
             self.__actor_full_name = None
@@ -34,3 +35,17 @@ class Actor:
             if self.colleagueList[i] == colleague:
                 return True
         return False
+
+    @property
+    def tagged_movies(self):
+        return self._tagged_movies
+
+    @property
+    def number_of_tagged_movies(self) -> int:
+        return len(self._tagged_movies)
+
+    def is_applied_to(self, movie) -> bool:
+        return movie in self._tagged_movies
+
+    def add_movie(self, movie):
+        self._tagged_movies.append(movie)

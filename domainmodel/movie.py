@@ -7,6 +7,7 @@ class Movie:
     def __init__(self, title: str, release_year: int):
         self.__actors = []
         self.__genres = []
+        self._reviews = []
         self.__director = None
         self.__runtime_minutes = 0
         self.__description = None
@@ -14,6 +15,7 @@ class Movie:
         self.__votes = 0.0
         self.__revenue = 0.0
         self.__metascore = 0.0
+        self.__rank = None
         if title == "" or type(title) is not str:
             self.__title = None
         else:
@@ -22,6 +24,14 @@ class Movie:
             self.__release_year = None
         else:
             self.__release_year = release_year
+
+    @property
+    def rank(self):
+        return self.__rank
+
+    @rank.setter
+    def rank(self, rank):
+        self.__rank = rank
 
     @property
     def title(self):
@@ -166,4 +176,13 @@ class Movie:
         if type(genre) is Genre and genre in self.__genres:
             self.__genres.remove(genre)
 
+    def add_review(self, new_review):
+        self._reviews.append(new_review)
 
+    @property
+    def reviews(self):
+        return self._reviews
+
+    @property
+    def release_year(self):
+        return self.__release_year

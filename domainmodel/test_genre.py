@@ -22,8 +22,8 @@ class TestGenreMethods:
         genre1 = Genre("Horror")
         genre2 = Genre("Comedy")
         assert genre1.__lt__(genre2) == False
+
     def test_hash(self):
         genre1 = Genre("Horror")
         genre2 = Genre("Horror")
         assert genre1.__hash__() == genre2.__hash__()
-

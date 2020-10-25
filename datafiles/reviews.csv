@@ -1,0 +1,3 @@
+id,user_id,movie_id,review_text,rating
+1,1,1,"It is a very exciting movie",8
+2,2,2,"So biring", 4

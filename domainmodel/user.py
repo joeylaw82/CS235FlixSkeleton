@@ -1,6 +1,7 @@
 from domainmodel.movie import Movie
 from domainmodel.review import Review
 
+
 class User:
     def __init__(self, username, password):
         if username == "" or type(username) is not str:
@@ -43,12 +44,12 @@ class User:
     def __repr__(self):
         return f"<User {self.__user_name}>"
 
-    def __eq__(self,other):
+    def __eq__(self, other):
         if self.__user_name == other.user_name:
             return True
         return False
 
-    def __lt__(self,other):
+    def __lt__(self, other):
         if self.__user_name < other.user_name:
             return True
         return False
@@ -64,4 +65,3 @@ class User:
     def add_review(self, review):
         if type(review) is Review:
             self.__reviews.append(review)
-
